@@ -1,0 +1,44 @@
+public class SavingsAccount {
+	static double annualInterestRate;
+	private double SavingsBalance;
+	void SavingsAccount(double bal) {
+		SavingsBalance=bal;
+	}
+	double calculateMonthlyInterest() {
+		double interest;
+		interest=SavingsBalance*(annualInterestRate/12);
+		SavingsBalance=SavingsBalance+interest;
+		return interest;
+	}
+	static void modifyInterestRate(double newinterest) {
+		annualInterestRate=newinterest;
+	}
+	double getbalance() {
+		return SavingsBalance;
+	}
+
+}
+
+public class SavingsAccount3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SavingsAccount saver1=new SavingsAccount();
+		SavingsAccount saver2=new SavingsAccount();
+		saver1.SavingsAccount(2000);
+		saver2.SavingsAccount(3000);
+		SavingsAccount.modifyInterestRate(0.04);
+		saver1.calculateMonthlyInterest();
+		saver2.calculateMonthlyInterest();
+		System.out.println("balance of saver1 is:"+saver1.getbalance());
+		System.out.println("balance of saver2 is:"+saver2.getbalance());
+		SavingsAccount.modifyInterestRate(0.05);
+		saver1.calculateMonthlyInterest();
+		saver2.calculateMonthlyInterest();
+		System.out.println("balance of saver1 is:"+saver1.getbalance());
+		System.out.println("balance of saver2 is:"+saver2.getbalance());
+		
+
+	}
+
+}
