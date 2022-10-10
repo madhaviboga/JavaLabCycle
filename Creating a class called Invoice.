@@ -1,0 +1,61 @@
+class Invoice{
+// Declare instance variables
+String partno;
+String des;
+int quantity;
+double price;
+
+// Constructor for variables’ initialization
+Invoice(String n, String d, int q, double p){
+partno = n;
+des = d;
+quantity = q;
+price = p;
+}
+
+// Set method
+void setpartno(String n){
+partno = n;
+}
+void setdes(String d){
+des = d;
+}
+void setQuantity(int q){
+quantity = q;
+if(q < 0)
+quantity = 0;
+}
+void setprice(double p){
+price = p;
+if(p < 0)
+price = 0.0;
+}
+
+// Get method
+String getpartno(){
+return partno;
+}
+String getdes(){
+return des;
+}
+int getquantity(){
+return quantity;
+}
+double getprice(){
+return price;
+}
+// getInvoiceAmount method
+double getInvoiceAmount(){
+return quantity*price;
+}
+}
+
+public class InvoiceTest {
+	public static void main(String args[]) {
+		Invoice ob1=new Invoice("43","pen",4,3);
+		Invoice ob2=new Invoice("14","scale",10,10);
+		System.out.println(ob1.getpartno()+"\t"+ob1.getdes()+"\t"+ob1.getquantity()+"\t"+ob1.getprice()+"\t"+ob1.getInvoiceAmount());
+		System.out.println(ob2.getpartno()+"\t"+ob2.getdes()+"\t"+ob2.getquantity()+"\t"+ob2.getprice()+"\t"+ob2.getInvoiceAmount());
+	}
+
+}
